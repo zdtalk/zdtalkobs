@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="flv-mux.h" />
+    <ClInclude Include="ftl-sdk\libftl\ftl.h" />
+    <ClInclude Include="ftl-sdk\libftl\ftl_private.h" />
+    <ClInclude Include="ftl-sdk\libftl\gettimeofday\gettimeofday.h" />
+    <ClInclude Include="ftl-sdk\libftl\hmac\hmac.h" />
+    <ClInclude Include="ftl-sdk\libftl\hmac\sha2.h" />
+    <ClInclude Include="ftl-sdk\libftl\win32\threads.h" />
+    <ClInclude Include="librtmp\amf.h" />
+    <ClInclude Include="librtmp\bytes.h" />
+    <ClInclude Include="librtmp\cencode.h" />
+    <ClInclude Include="librtmp\dh.h" />
+    <ClInclude Include="librtmp\dhgroups.h" />
+    <ClInclude Include="librtmp\handshake.h" />
+    <ClInclude Include="librtmp\http.h" />
+    <ClInclude Include="librtmp\log.h" />
+    <ClInclude Include="librtmp\md5.h" />
+    <ClInclude Include="librtmp\rtmp.h" />
+    <ClInclude Include="librtmp\rtmp_sys.h" />
+    <ClInclude Include="net-if.h" />
+    <ClInclude Include="obs-output-ver.h" />
+    <ClInclude Include="obs-outputs-config.h" />
+    <ClInclude Include="rtmp-helpers.h" />
+    <ClInclude Include="rtmp-stream.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="flv-mux.c" />
+    <ClCompile Include="flv-output.c" />
+    <ClCompile Include="ftl-sdk\libftl\ftl-sdk.c" />
+    <ClCompile Include="ftl-sdk\libftl\ftl_helpers.c" />
+    <ClCompile Include="ftl-sdk\libftl\gettimeofday\gettimeofday.c" />
+    <ClCompile Include="ftl-sdk\libftl\handshake.c" />
+    <ClCompile Include="ftl-sdk\libftl\hmac\hmac.c" />
+    <ClCompile Include="ftl-sdk\libftl\hmac\sha2.c" />
+    <ClCompile Include="ftl-sdk\libftl\ingest.c" />
+    <ClCompile Include="ftl-sdk\libftl\logging.c" />
+    <ClCompile Include="ftl-sdk\libftl\media.c" />
+    <ClCompile Include="ftl-sdk\libftl\win32\socket.c" />
+    <ClCompile Include="ftl-sdk\libftl\win32\threads.c" />
+    <ClCompile Include="ftl-stream.c" />
+    <ClCompile Include="librtmp\amf.c" />
+    <ClCompile Include="librtmp\cencode.c" />
+    <ClCompile Include="librtmp\hashswf.c" />
+    <ClCompile Include="librtmp\log.c" />
+    <ClCompile Include="librtmp\md5.c" />
+    <ClCompile Include="librtmp\parseurl.c" />
+    <ClCompile Include="librtmp\rtmp.c" />
+    <ClCompile Include="net-if.c" />
+    <ClCompile Include="null-output.c" />
+    <ClCompile Include="obs-outputs.c" />
+    <ClCompile Include="rtmp-stream.c" />
+    <ClCompile Include="rtmp-windows.c" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B4C83B2D-0349-488A-A7B3-90947C096586}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>obsoutputs</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\build\$(Configuration)\obs-plugins</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\build\$(Configuration)\obs-plugins</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG=1;_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NO_CRYPTO;HAVE_OBSCONFIG_H;OBSOUTPUTS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\deps;..\..\deps\w32-pthreads;..\..\deps\jansson\include;..\..\deps\jansson\src;..\..\libobs;.\ftl-sdk\libftl;.\ftl-sdk\libftl\win32;..\..\deps\prebuild\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\build\lib\$(Configuration)\w32-pthreads.lib;..\..\build\lib\$(Configuration)\libobs.lib;..\..\build\lib\$(Configuration)\jansson.lib;..\..\deps\prebuild\win32\bin\libcurl.lib;ws2_32.lib;winmm.lib;Iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <ImportLibrary>..\..\build\lib\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;NO_CRYPTO;HAVE_OBSCONFIG_H;OBSOUTPUTS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\deps;..\..\deps\w32-pthreads;..\..\deps\jansson\include;..\..\deps\jansson\src;..\..\libobs;.\ftl-sdk\libftl;.\ftl-sdk\libftl\win32;..\..\deps\prebuild\win32\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\..\build\lib\$(Configuration)\w32-pthreads.lib;..\..\build\lib\$(Configuration)\libobs.lib;..\..\build\lib\$(Configuration)\jansson.lib;..\..\deps\prebuild\win32\bin\libcurl.lib;ws2_32.lib;winmm.lib;Iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>..\..\build\lib\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

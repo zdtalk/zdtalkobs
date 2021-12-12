@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{e3d529d6-13a2-4391-a808-e6a0ac591c73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3609b5ab-4d48-4c2e-b2c5-080be151e594}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gl-helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gl-shaderparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gl-subsystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="gl-helpers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-indexbuffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-shaderparser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-stagesurf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-subsystem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-texture2d.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-texturecube.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-vertexbuffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-zstencil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gl-shader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

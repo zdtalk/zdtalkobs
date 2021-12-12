@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Library Private Headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Library Public Headers">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Library Sources">
+      <UniqueIdentifier>{26bdf703-e987-420a-9416-47c2f9411538}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\hashtable.h">
+      <Filter>Library Private Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\jansson_private.h">
+      <Filter>Library Private Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\strbuffer.h">
+      <Filter>Library Private Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utf.h">
+      <Filter>Library Private Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="private_include\jansson_private_config.h">
+      <Filter>Library Private Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\jansson_config.h">
+      <Filter>Library Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\jansson.h">
+      <Filter>Library Public Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dump.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\error.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hashtable.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hashtable_seed.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\load.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memory.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pack_unpack.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\strbuffer.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\strconv.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utf.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\value.c">
+      <Filter>Library Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

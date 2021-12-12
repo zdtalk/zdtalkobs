@@ -1,0 +1,1 @@
+.\build\Release\zdtalkrecorder.exe -l D:\record.log -c C:\RecordCrash -u jianggp -i 12321321

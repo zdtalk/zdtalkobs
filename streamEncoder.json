@@ -1,0 +1,7 @@
+{
+    "crf": 22,
+    "keyint_sec": 10,
+    "profile": "main",
+    "rate_control": "CRF",
+    "tune": "stillimage"
+}

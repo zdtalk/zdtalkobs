@@ -1,0 +1,6 @@
+安装 DxWebSetup.exe 时，如果提示一下错误
+
+“不能信任一个安装所需的压缩文件，请检查加密服务是否启用并且cabinet文件证书是否有效”
+
+则需要手动安装 directx_Jun2010_redist.exe
+

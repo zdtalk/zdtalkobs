@@ -1,0 +1,45 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# 
+deps/prebuild/
+build/
+*.suo
+*.sdf
+**/Debug/
+**/Release/
+**/ipch/
+
+!third_party/directx_setup/DxWebUpdate.exe
+!third_party/directx_setup/DSETUP.dll
+!third_party/directx_setup/lib/dsetup.lib
