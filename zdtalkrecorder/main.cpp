@@ -44,7 +44,7 @@
 
 #define LOG_CRASHED "!!! Crashed !!!"
 
-static const char *kAppName = "ZDTalk";
+static const char *kAppName = "ZDTalkRecorder";
 static const wchar_t *kInstanceMutexName = L"ZDTalkRecorderMutex";
 
 QString g_log_file_path;
