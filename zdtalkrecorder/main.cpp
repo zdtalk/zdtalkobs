@@ -120,7 +120,7 @@ static bool SetupCrashRpt(CrAutoInstallHelper **helper, const QString &user_name
 // [CrashRpt Handler]
 
 // [Qt Log Handler]
-static void LogHandler(QtMsgType type, const QMessageLogContext &,
+static void QtLogHandler(QtMsgType type, const QMessageLogContext &,
     const QString &msg)
 {
     QString tag = "UNKNOWN";
@@ -150,7 +150,7 @@ static void LogHandler(QtMsgType type, const QMessageLogContext &,
 // [Qt Log Handler]
 
 // [OBS Log Handler]
-static void LogHandler(int level, const char *format, va_list args, void *param)
+static void OBSLogHandler(int level, const char *format, va_list args, void *param)
 {
     UNUSED_PARAMETER(level);
     UNUSED_PARAMETER(param);
@@ -375,13 +375,13 @@ static int RunRecorder(const QString server, const QString config,
 
 int main(int argc, char *argv[])
 {
-#ifdef WIN32
-    HANDLE instance_mutex = CreateMutexW(NULL, TRUE, kInstanceMutexName);
-    if (GetLastError() == ERROR_ALREADY_EXISTS) {
-        CloseHandle(instance_mutex);
-        return 0;
-    }
-#endif
+//#ifdef WIN32
+//    HANDLE instance_mutex = CreateMutexW(NULL, TRUE, kInstanceMutexName);
+//    if (GetLastError() == ERROR_ALREADY_EXISTS) {
+//        CloseHandle(instance_mutex);
+//        return 0;
+//    }
+//#endif
 
     QString user_name, openid, server_name, config_path;
     for (int i = 1; i < argc; ++i) {
@@ -407,7 +407,7 @@ int main(int argc, char *argv[])
 
 #ifdef QT_NO_DEBUG
     RecorderLogger::GetInstance()->OpenLogFile(g_log_file_path);
-    qInstallMessageHandler(LogHandler);
+    qInstallMessageHandler(QtLogHandler);
 #endif
 
     g_crash_dir_path = QFileInfo(g_crash_file_path).absoluteDir().absolutePath();
@@ -416,8 +416,9 @@ int main(int argc, char *argv[])
 
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
 
-    base_set_log_handler(LogHandler, nullptr);
+    base_set_log_handler(OBSLogHandler, nullptr);
     qInfo() << "======================= Recorder Start =======================";
+    qInfo() << ZDTALK_RECORDER_VERSION_STR;
     
     DetectDX();
 	//if (!DetectDX())

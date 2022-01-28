@@ -96,6 +96,24 @@ void RecorderClient::StopStreaming()
     obs_context_->StopStreaming(true);
 #endif
 }
+
+void RecorderClient::UpdateAudioOutput(const QString &name)
+{
+#ifdef THREADWORKER
+    emit OBSResetAudioOutput("", name);
+#else
+    obs_context_->ResetAudioOutput("", name);
+#endif
+}
+
+void RecorderClient::UpdateAudioInput(const QString &name)
+{
+#ifdef THREADWORKER
+    emit OBSResetAudioInput("", name);
+#else
+    obs_context_->ResetAudioInput("", name);
+#endif
+}
 #endif
 
 RecorderClient::RecorderClient(QObject *parent) : QObject(parent)
@@ -199,12 +217,24 @@ RecorderClient::~RecorderClient()
     if (thread_->isRunning()) {
         qInfo("Waiting for recorder thread end...");
         thread_->quit();
-        thread_->wait(1000);
+        thread_->wait(500);
         qInfo("Recording thread end.");
     }
 #endif
 
     delete obs_context_;
+}
+
+void RecorderClient::Quit()
+{
+//#ifdef THREADWORKER
+//    emit OBSStopStreaming(true);
+//    emit OBSStopRecording(true);
+//#else
+//    obs_context_->StopStreaming(force);
+//    obs_context_->StopRecording(force);
+//#endif
+    QTimer::singleShot(200, App(), SLOT(quit()));
 }
 
 void RecorderClient::ConnectToServer(const QString &server)
@@ -228,13 +258,13 @@ void RecorderClient::OnSocketConnected()
 void RecorderClient::OnSocketDisconnected()
 {
     qInfo() << "Socket disconnected.";
-	QTimer::singleShot(100, App(), SLOT(quit()));
+    Quit();
 }
 
 void RecorderClient::OnSocketError(QLocalSocket::LocalSocketError)
 {
     qWarning() << "Socket Error :" << socket_->errorString();
-    QTimer::singleShot(100, App(), SLOT(quit()));
+    Quit();
 }
 
 void RecorderClient::OnSocketReadyRead()

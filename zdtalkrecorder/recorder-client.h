@@ -43,6 +43,8 @@ public:
     void StopRecording();
     void StartStreaming(const QString &, const QString &);
     void StopStreaming();
+    void UpdateAudioOutput(const QString &);
+    void UpdateAudioInput(const QString &);
 #endif
 
 signals:
@@ -84,6 +86,7 @@ private slots:
 private:
     void SendMessageToServer(int event, int param1 = 0,
                              const QString &param2 = QStringLiteral(""));
+    void Quit();
 
 private:
     QLocalSocket *socket_ = nullptr;

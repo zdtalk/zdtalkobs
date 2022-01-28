@@ -213,28 +213,35 @@ static void ResetAudioDevice(const char *sourceId, const char *deviceId,
                 obs_data_set_string(settings, "device_id",
                                     deviceId);
             }
-            if (channel == ZDTALK_AUDIO_OUTPUT_INDEX)
-                obs_data_set_bool(settings, "use_device_timing", true);
-            else
-                obs_data_set_bool(settings, "use_device_timing", false);
+            // if (channel == ZDTALK_AUDIO_OUTPUT_INDEX)
+            //     obs_data_set_bool(settings, "use_device_timing", true);
+            // else
+            obs_data_set_bool(settings, "use_device_timing", false);
             obs_source_update(source, settings);
             obs_data_release(settings);
+
+            obs_source_set_monitoring_type(source, OBS_MONITORING_TYPE_NONE);
+            obs_source_set_audio_mixers(source, 1);
         }
+
+        obs_source_release(source);
 
     } else if (!disable) {
         settings = obs_data_create();
         obs_data_set_string(settings, "device_id", deviceId);
         // if (channel == ZDTALK_AUDIO_OUTPUT_INDEX)
-            obs_data_set_bool(settings, "use_device_timing", true);
+        //     obs_data_set_bool(settings, "use_device_timing", true);
         // else
-        //     obs_data_set_bool(settings, "use_device_timing", false);
+        obs_data_set_bool(settings, "use_device_timing", false);
         source = obs_source_create(sourceId, deviceDesc, settings, nullptr);
         obs_data_release(settings);
 
-        obs_set_output_source(channel, source);
-    }
+        obs_source_set_monitoring_type(source, OBS_MONITORING_TYPE_NONE);
+        obs_source_set_audio_mixers(source, 1);
 
-    obs_source_release(source);
+        obs_set_output_source(channel, source);
+        obs_source_release(source);
+    }
 }
 
 static void AddSource(void *_data, obs_scene_t *scene)
@@ -598,6 +605,10 @@ bool RecorderObsContext::Init()
         blog(LOG_WARNING, "Audio device %s not found.", App()->InputAudioSource());
     }
 
+    obs_set_output_source(2, nullptr);
+    obs_set_output_source(4, nullptr);
+    obs_set_output_source(5, nullptr);
+
     emit Inited();
     return true;
 }
@@ -940,6 +951,8 @@ void RecorderObsContext::StartRecording(const QString &output)
         return;
     }
 
+    DownmixMonoInput(true);
+
     config_set_default_string(App()->GetGlobalConfig(), "Output", "FilePath",
         output.toStdString().c_str());
 
@@ -949,7 +962,7 @@ void RecorderObsContext::StartRecording(const QString &output)
 
 void RecorderObsContext::StopRecording(bool force)
 {
-    if (output_handler_->RecordingActive())
+    if (output_handler_ && output_handler_->RecordingActive())
         output_handler_->StopRecording(force);
 }
 
@@ -995,7 +1008,7 @@ void RecorderObsContext::StartStreaming(const QString &server, const QString &ke
 
 void RecorderObsContext::StopStreaming(bool force)
 {
-    if (output_handler_->StreamingActive())
+    if (output_handler_ && output_handler_->StreamingActive())
         output_handler_->StopStreaming(force);
 }
 

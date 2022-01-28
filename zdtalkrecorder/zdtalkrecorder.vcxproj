@@ -54,7 +54,7 @@
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>TEST;UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB;QT_WIDGETS_LIB;QT_WINEXTRAS_LIB;QT_GUI_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\VisualLeakDetector\include;..\deps\prebuild\win32\include;..\third_party\directx_setup\include;..\third_party\CrashRpt\include;..\libobs;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtWinExtras;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\deps\prebuild\win32\include;..\third_party\directx_setup\include;..\third_party\CrashRpt\include;..\libobs;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtWinExtras;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -65,12 +65,12 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>D:\VisualLeakDetector\lib\Win32;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>vld.lib;DbgHelp.lib;Advapi32.lib;Ole32.lib;..\third_party\directx_setup\lib\dsetup.lib;..\third_party\CrashRpt\lib\CrashRpt1402d.lib;..\build\lib\Debug\libobs.lib;qtmaind.lib;Qt5Cored.lib;Qt5Multimediad.lib;Qt5Networkd.lib;Qt5Widgetsd.lib;Qt5WinExtrasd.lib;Qt5Guid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>DbgHelp.lib;Advapi32.lib;Ole32.lib;..\third_party\directx_setup\lib\dsetup.lib;..\third_party\CrashRpt\lib\CrashRpt1402d.lib;..\build\lib\Debug\libobs.lib;qtmaind.lib;Qt5Cored.lib;Qt5Multimediad.lib;Qt5Networkd.lib;Qt5Widgetsd.lib;Qt5WinExtrasd.lib;Qt5Guid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <QtMoc>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
       <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
-      <IncludePath>D:\VisualLeakDetector\include;..\deps\prebuild\win32\include;..\third_party\directx_setup\include;..\third_party\CrashRpt\include;..\libobs;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtWinExtras;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;%(AdditionalIncludeDirectories)</IncludePath>
+      <IncludePath>..\deps\prebuild\win32\include;..\third_party\directx_setup\include;..\third_party\CrashRpt\include;..\libobs;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtWinExtras;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;%(AdditionalIncludeDirectories)</IncludePath>
       <Define>TEST;UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB;QT_WIDGETS_LIB;QT_WINEXTRAS_LIB;QT_GUI_LIB;%(PreprocessorDefinitions)</Define>
     </QtMoc>
     <QtUic>
